@@ -1,6 +1,6 @@
 const express = require('express');
 const app = express();
-const port = 80;
+const port = 5000;
 const nodemailer = require('nodemailer');
 require('dotenv').config(); // for environment variables
 const session = require('express-session');
