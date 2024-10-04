@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page Not Found</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f8f9fa;
+            font-family: 'Arial', sans-serif;
+        }
+        .error-container {
+            text-align: center;
+            border: 2px solid #dc3545;
+            border-radius: 10px;
+            padding: 40px;
+            background-color: #ffffff;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            max-width: 400px;
+        }
+        .error-code {
+            font-size: 80px;
+            color: #dc3545;
+            margin-bottom: 20px;
+        }
+        .error-message {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+        .error-button {
+            margin-top: 20px;
+            padding: 10px 20px;
+        }
+        @media (max-width: 576px) {
+            .error-code {
+                font-size: 60px;
+            }
+            .error-message {
+                font-size: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="error-container">
+        <div class="error-code">404</div>
+        <div class="error-message">Oops! Page Not Found</div>
+        <p>Sorry, the page you are looking for does not exist or has been moved.</p>
+        <a href="/" class="btn btn-danger error-button">Go to Home Page</a>
+    </div>
+</body>
+</html>

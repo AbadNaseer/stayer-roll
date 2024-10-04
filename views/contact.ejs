@@ -1,0 +1,131 @@
+<!-- Include the header -->
+<%- include('layouts/header') %>
+
+    <section class="breadcrumbs-custom">
+        <div class="container">
+            <div class="breadcrumbs-custom__inner">
+                <p class="breadcrumbs-custom__title">Contacts</p>
+                <ul class="breadcrumbs-custom__path">
+                    <li><a href="index.html">Home</a></li>
+                    <li class="active">Contacts</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+    <section>
+        <div class="google-map">
+            <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d28981.077336904717!2d46.593163043764854!3d24.77371219467148!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e2ee3a8524ae2ff%3A0xcda17144df0c9890!2sAl%20Aqiq%2C%20Riyadh%20Saudi%20Arabia!5e0!3m2!1sen!2s!4v1727705286320!5m2!1sen!2s"
+                width="800" height="600" style="border:0;" allowfullscreen="" loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+    </section>
+    <section class="section-lg bg-default">
+        <div class="container">
+            <div class="row row-50">
+                <div class="col-md-5 col-lg-4">
+                    <h3 style="text-align: center;">تفاصيل الاتصال</h3>
+                    <ul class="list-xs contact-info">
+                        <li>
+                            <dl class="list-terms-minimal">
+                                <dt>العنوان</dt>
+                                <dd>السلطانية، العقيق، الرياض 12211، المملكة العربية السعودية</dd><br>
+                                <dd>السلطانية، العقيق، الرياض 12211، المملكة العربية السعودية</dd>
+                            </dl>
+                        </li>
+                        <li>
+                            <dl class="list-terms-minimal">
+                                <dt>الهاتف</dt>
+                                <dd>
+                                    <ul class="list-semicolon">
+                                        <li><a href="tel:+9660552275480">+966 0552275480</a></li>
+                                    </ul>
+                                </dd>
+                            </dl>
+                        </li>
+                        <li>
+                            <dl class="list-terms-minimal">
+                                <dt>البريد الإلكتروني</dt>
+                                <dd><a href="mailto:#">noorcurtainstore@gmail.com</a></dd>
+                            </dl>
+                        </li>
+                        <li>
+                            <dl class="list-terms-minimal">
+                                <dt>مواعيد العمل</dt>
+                                <dd>السبت-الخميس: 8 صباحاً - 8 مساءً</dd>
+                            </dl>
+                        </li>
+                        <li>
+                            <ul class="list-inline-sm">
+                                <li>
+                                    <a class="icon icon-sm fa-phone" href="tel:+9660552275480"
+                                        onclick="makePhoneCall()"></a>
+                                </li>
+                                <li>
+                                    <a class="icon icon-sm fa-whatsapp" href="https://wa.me/966552275480"
+                                        onclick="makePhoneCall()"></a>
+                                </li>
+                                <li>
+                                    <a class="icon icon-sm fa-facebook" href="#"></a>
+                                </li>
+                                <li>
+                                    <a class="icon icon-sm fa-instagram" href="#"></a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="col-md-5 col-lg-m offset-2">
+                    <h3 style="text-align: center;">لنتواصل</h3>
+                    <!--RD Mailform-->
+                    <form id="contact-form" method="post" action="/submit-form">
+                        <div class="form-wrap">
+                            <label for="contact-name">Your Name</label>
+                            <input class="form-input" id="contact-name" type="text" name="name" required>
+                        </div>
+                        <div class="form-wrap">
+                            <label for="contact-email">Your Email</label>
+                            <input class="form-input" id="contact-email" type="email" name="email" required>
+                        </div>
+                        <div class="form-wrap">
+                            <label for="contact-phone">Your Phone</label>
+                            <input class="form-input" id="contact-phone" type="text" name="phone" required>
+                        </div>
+                        <div class="form-wrap">
+                            <label for="contact-message">Your Message</label>
+                            <textarea class="form-input" id="contact-message" name="message" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">إرسال رسالة</button>
+                    </form>
+                    <p id="error-message" style="color: red;"></p>
+                </div>
+            </div>
+        </div>
+        <%- include('layouts/footer') %>
+
+            <script>
+                function isValidEmail(email) {
+                    const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                    return regex.test(email);
+                }
+
+                function isValidPhoneNumber(phone) {
+                    const regex = /^\+966[0-9]{9}$/; // Assuming the format is +966 followed by 9 digits
+                    return regex.test(phone);
+                }
+
+                document.getElementById("contact-form").addEventListener("submit", function (event) {
+                    const email = document.getElementById("contact-email").value;
+                    const phone = document.getElementById("contact-phone").value;
+
+                    if (!isValidEmail(email)) {
+                        event.preventDefault();
+                        document.getElementById("error-message").innerText = "Invalid email address!";
+                    } else if (!isValidPhoneNumber(phone)) {
+                        event.preventDefault();
+                        document.getElementById("error-message").innerText = "Invalid phone number! Phone number should be look like +966331766152";
+                    }
+                });
+            </script>
+    </section>
