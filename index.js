@@ -15,6 +15,13 @@ app.use(express.static('public'));
 // In your Express route handler
 app.use(express.urlencoded({ extended: true }));
 
+//code added
+app.use((req, res, next) => {
+    console.log(`Request URL: ${req.url}`);
+    next();
+});
+
+
 // Set up session middleware
 app.use(session({
     secret: 'your_secret_key', // Replace with a secure random key
